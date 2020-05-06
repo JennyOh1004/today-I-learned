@@ -1,19 +1,29 @@
 function findNumber(arr) {
   let obj = {};
-  let times = arr[0] * arr[1] * arr[2];
-  times = times.toString().split("");
-  console.log(times);
-  //[ '1', '7', '0', '3', '7', '3', '0', '0' ]
+  let num = arr.reduce((a, b) => a * b);
+  num = num.toString().split("");
+  console.log(num);
 
-  for (let num of times) {
-    obj[num] = obj[num] ? obj[num] + 1 : 1;
+  for (let i = 0; i < num.length; i++) {
+    let target = num[i];
+    // if (obj[target]) {
+    //   obj[target] = obj[target] + 1;
+    // } else {
+    //   obj[target] = 1;
+    // }
+    // 삼항 연산자 (if문을 간결하게 쓰기위한것 )
+    // 조건 ? 참일떄 : 거짓일떄
+
+    // if(조건) {참일때}
+    // else {거짓일 떄}
+
+    obj[target] ? (obj[target] = obj[target] + 1) : (obj[target] = 1);
+    obj[target] = obj[target] ? obj[target] + 1 : 1;
   }
-  //각 배열에 해당하는 숫자가 또 나오면 +1 아니면 그냥 1
 
-  for (let i = 0; i < 10; i++) {
-    //0~9
-    if (obj[i]) {
-      console.log(obj[i]);
+  for (let j = 0; j < 10; j++) {
+    if (obj[j]) {
+      console.log(obj[j]);
     } else {
       console.log(0);
     }

@@ -1,21 +1,26 @@
 function findNumbers(arr) {
-  let total = 1;
-  let reminder = 0;
-  let num = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-  for (let i = 0; i < arr.length; i++) {
-    total = total * arr[i]; //a*b*c
-  }
+  let obj = {};
+  let num = arr.reduce((a, b) => a * b);
+  num = num.toString().split("");
+  console.log(num);
 
-  for (let j = 0; j < total; j++) {
-    reminder = total % 10;
-    num[reminder]++;
-    total /= 10;
-
-    console.log(Math.floor(reminder));
+  for (let i = 0; i < num.length; i++) {
+    if (obj[num[i]]) {
+      obj[num[i]] = obj[num[i]] + 1;
+    } else {
+      obj[num[i]] = 1;
+    }
   }
-  // for (let k = 0; k < 10; k++) {
-  //   console.log(`숫자:${k}: ${num[k]}`);
-  // }
-  return Math.floor(total);
+  for (let j = 0; j < 10; j++) {
+    if (obj[j]) {
+      console.log(obj[j]);
+    } else {
+      console.log(0);
+    }
+  }
 }
-console.log(findNumbers([150, 266, 427]));
+findNumbers([150, 266, 427]);
+
+//3수의 곱
+//그 나온 수의 갯수를 찾는다
+//인덱스에 위치마다 갯수를 더 해준다
