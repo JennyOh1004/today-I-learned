@@ -12,6 +12,6 @@ function diffNum(arr) {
       obj[num] = 1;
     }
   }
-  console.log(Object.keys(obj).length);
+  console.log(Object.keys(obj));
 }
 diffNum([39, 40, 41, 42, 43, 44, 82, 83, 84, 85]);
