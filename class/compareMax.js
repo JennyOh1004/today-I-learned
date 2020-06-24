@@ -9,3 +9,9 @@ function compareMax(arr) {
   console.log(max);
 }
 compareMax([1, 2, 3]);
+
+// if(times > max){
+//   max = times
+// }else{
+//   max = max
+// }
